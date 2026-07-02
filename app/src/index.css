@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 210 40% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 40% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 40% 11%;
+    --primary: 43 45% 58%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 210 40% 11%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 210 20% 96%;
+    --accent-foreground: 210 40% 11%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 43 45% 58%;
+    --radius: 0.75rem;
+    --gold: #c9a962;
+    --gold-light: #d4af37;
+    --navy: #102a43;
+    --navy-light: #243b53;
+  }
+
+  .dark {
+    --background: 210 40% 5%;
+    --foreground: 210 20% 92%;
+    --card: 210 35% 10%;
+    --card-foreground: 210 20% 92%;
+    --popover: 210 35% 10%;
+    --popover-foreground: 210 20% 92%;
+    --primary: 43 45% 58%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 30% 14%;
+    --secondary-foreground: 210 20% 92%;
+    --muted: 210 30% 14%;
+    --muted-foreground: 215 16% 56%;
+    --accent: 210 30% 14%;
+    --accent-foreground: 210 20% 92%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 25% 18%;
+    --input: 210 25% 18%;
+    --ring: 43 45% 58%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #c9a962 0%, #d4af37 50%, #e1c066 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-navy {
+    background: linear-gradient(135deg, #0a1929 0%, #102a43 50%, #0a1929 100%);
+  }
+
+  .glass {
+    @apply bg-white/80 dark:bg-navy-950/80 backdrop-blur-xl;
+  }
+
+  .glass-card {
+    @apply bg-white/60 dark:bg-navy-900/60 backdrop-blur-lg border border-gold-500/10 dark:border-gold-500/5;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-gold-500 text-white font-semibold rounded-lg transition-all duration-300 hover:bg-gold-600 hover:shadow-lg hover:shadow-gold-500/25 active:scale-[0.98];
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-gold-500 text-gold-600 dark:text-gold-400 font-semibold rounded-lg transition-all duration-300 hover:bg-gold-500 hover:text-white active:scale-[0.98];
+  }
+
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-xl {
+    @apply max-w-7xl mx-auto;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #c9a96244;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c9a96288;
+}
+
+::selection {
+  background: rgba(201, 169, 98, 0.25);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Carousel crossfade animation */
+@keyframes crossfade {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-crossfade {
+  animation: crossfade 0.4s ease-out both;
+}
+
+/* Mobile touch optimizations */
+@layer base {
+  /* Prevent 300ms tap delay on mobile */
+  html { touch-action: manipulation; }
+
+  /* Remove tap highlight on touch devices */
+  * { -webkit-tap-highlight-color: transparent; }
+
+  /* Smooth scrolling with momentum on iOS */
+  body {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: none;
+  }
+}
+
+/* Responsive utility for xs breakpoint */
+@layer utilities {
+  @media (min-width: 400px) {
+    .xs\:inline { display: inline; }
+    .xs\:hidden { display: none; }
+  }
+  @media (max-width: 399px) {
+    .xs\:inline { display: none; }
+    .xs\:hidden { display: inline; }
+  }
+}
+
+/* Shimmer skeleton animation */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(201, 169, 98, 0.1) 25%,
+    rgba(201, 169, 98, 0.2) 50%,
+    rgba(201, 169, 98, 0.1) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
