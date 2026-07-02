@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+    <meta name="theme-color" content="#102a43" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#F8F6F3" media="(prefers-color-scheme: light)" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <title>AML Funding - Absolute Mortgage & Lending</title>
+    <meta name="description" content="AML Funding LLC - Your trusted partner in homeownership. Premium mortgage solutions tailored to your goals. CO-NMLS #1910591 | NMLS #2180679." />
+    
+    <!-- Preload critical above-fold images -->
+    <link rel="preload" as="image" href="./president-club.jpg" fetchpriority="high" />
+    <link rel="preload" as="image" href="./mai-hoang-logo.jpg" fetchpriority="high" />
+
+    <!-- Preload below-fold images early -->
+    <link rel="preload" as="image" href="./michael-mai-logo.jpg" fetchpriority="low" />
+
+    <!-- Preconnect to external services -->
+    <!-- Resource hints for faster external connections -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://www.google.com" />
+    <link rel="dns-prefetch" href="https://public.tableau.com" />
+    
+    <!-- Fonts - non-blocking load with print media swap trick -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600&family=Montserrat:wght@500;600;700;900&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600&family=Montserrat:wght@500;600;700;900&display=swap" media="print" onload="this.media='all'" />
+    
+    <!-- Critical CSS inlined for above-fold content -->
+    <style>
+      /* Critical: prevent FOUC */
+      html { scroll-behavior: smooth; }
+      body { margin: 0; background: #F8F6F3; font-family: system-ui, -apple-system, sans-serif; }
+      #root { min-height: 100vh; }
+      /* Loading spinner while JS loads */
+      .initial-loader { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background: #F8F6F3; z-index: 9999; transition: opacity 0.3s; }
+      .initial-loader.loaded { opacity: 0; pointer-events: none; }
+      .initial-loader::after { content: ''; width: 40px; height: 40px; border: 3px solid #C9A96233; border-top-color: #C9A962; border-radius: 50%; animation: spin 0.8s linear infinite; }
+      @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+    <script type="module" crossorigin src="./assets/index-mNSrs38u.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/vendor-react-LskrFSl1.js">
+    <link rel="modulepreload" crossorigin href="./assets/pdf-libs-B4RcTo_m.js">
+    <link rel="modulepreload" crossorigin href="./assets/vendor-ui-XLrTbAnA.js">
+    <link rel="stylesheet" crossorigin href="./assets/index-DEm2s8aZ.css">
+  </head>
+  <body>
+    <div id="root">
+      <!-- Initial loading state shown before React hydrates -->
+      <div class="initial-loader" id="initial-loader"></div>
+    </div>
+    <script>
+      // Remove loader once JS is ready
+      window.addEventListener('DOMContentLoaded', function() {
+        var loader = document.getElementById('initial-loader');
+        if (loader) {
+          setTimeout(function() { loader.classList.add('loaded'); }, 100);
+          setTimeout(function() { loader.style.display = 'none'; }, 500);
+        }
+      });
+    </script>
+    <noscript>
+      <style>.initial-loader { display: none !important; }</style>
+      <div style="padding: 2rem; text-align: center; font-family: system-ui;">
+        <p>Please enable JavaScript to view AML Funding.</p>
+        <a href="tel:814-386-7005">Call us: (814) 386-7005</a>
+      </div>
+    </noscript>
+  </body>
+</html>
